@@ -5,12 +5,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      text: "",
+      show: false
     };
   }
   handleClick = () => {
     this.setState({
       text: `Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy`
+    });
+    this.setState({
+      show: true
     });
   };
   render() {
@@ -19,7 +23,7 @@ class App extends Component {
         <button id="click" onClick={this.handleClick}>
           click
         </button>
-        <p id="para">{this.state.text}</p>
+        {this.state.show ? <p id="para">{this.state.text}</p> : null}
       </div>
     );
   }
